@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>幻灯片</title>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<style type="text/css">
+		li{ list-style: none; padding: 0; margin: 0; }
+		ul{ padding: 0; margin: 0;}
+		.container{ position: relative; width: 400px; margin: 0 auto; }
+		.main{ position: relative; width: 400px; height: 400px; margin: 0 auto; overflow: hidden; }
+		.main ul{ height: 400px; }
+		.main li{ position: absolute; top: 0; left: 0; height: 400px; }
+		.nav{ position: absolute; right: 0; bottom: 0; }
+		.nav ul{ overflow: hidden; }
+		.nav li{ float: left; width: 20px; height: 5px; background: #000; margin-left: 5px; cursor: pointer; }
+		.nav .active{ background: #f00; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="main">
+			<ul>
+				<li class="active"><img src="http://placehold.it/400x400&text=1"></li>
+				<li><img src="http://placehold.it/400x400&text=2"></li>
+				<li><img src="http://placehold.it/400x400&text=3"></li>
+				<li><img src="http://placehold.it/400x400&text=4"></li>
+			</ul>
+		</div>
+		
+		<div class="nav">
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<span id="prev">前一页</span>
+		<span id="next">后一页</span>
+	</div>
+	<script type="text/javascript" src="ue.slidebox.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		ue.slideBox({
+			target : ".main",
+			items : ".main li",
+			speed : 500,
+			navigation : ".nav li",
+			delay : 3000,
+			curClass : "active",
+			trigger : "click",
+			autoplay: true,
+			prevbtn : "#prev",
+			nextbtn : "#next",
+		});
+	})
+		
+	</script>
+</body>
+</html>
